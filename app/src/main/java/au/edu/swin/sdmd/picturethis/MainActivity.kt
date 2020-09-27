@@ -6,6 +6,9 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_food.*
+import kotlinx.android.synthetic.main.activity_food.view.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     private var food3: FoodDetails? = null
     private var food4: FoodDetails? = null
 
+    private var requestCode: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,10 +54,10 @@ class MainActivity : AppCompatActivity() {
         ratingTextView3 = findViewById<TextView>(R.id.foodRating3)
         ratingTextView4 = findViewById<TextView>(R.id.foodRating4)
 
-        food1 = FoodDetails("chickenrice", "default", "default", 1.0.toFloat())
-        food2 = FoodDetails("nasilemak", "default", "default", 1.0.toFloat())
-        food3 = FoodDetails("friednoodle", "default", "default", 1.0.toFloat())
-        food4 = FoodDetails("satay", "default", "default",  1.0.toFloat())
+        food1 = FoodDetails("Chicken Rice", "Malaysian Cuisine", "26/9/2020", 3.0.toFloat())
+        food2 = FoodDetails("Nasi Lemak", "Malaysian Cuisine", "26/9/2020", 4.0.toFloat())
+        food3 = FoodDetails("Fried Noodle", "Malaysian Cuisine", "26/9/2020", 5.0.toFloat())
+        food4 = FoodDetails("Satay", "Malaysian Cuisine", "26/9/2020",  2.0.toFloat())
 
     }
 
@@ -62,14 +66,55 @@ class MainActivity : AppCompatActivity() {
         val i = Intent(this, Food::class.java)
 
         when(view.id) {
-            R.id.chickenrice -> { i.putExtra("Food Details", food1) }
-            R.id.nasilemak -> {i.putExtra("Food Details", food2)}
-            R.id.friednoodle -> {i.putExtra("Food Details", food3)}
-            R.id.satay -> {i.putExtra("Food Details", food4)}
+            R.id.chickenrice -> {
+                i.putExtra("Food Details", food1)
+                requestCode = 1
+            }
+            R.id.nasilemak -> {
+                i.putExtra("Food Details", food2)
+                requestCode = 2
+            }
+            R.id.friednoodle -> {
+                i.putExtra("Food Details", food3)
+                requestCode = 3
+            }
+            R.id.satay -> {
+                i.putExtra("Food Details", food4)
+                requestCode = 4
+            }
         }
 
+        i.putExtra("Request Code", requestCode)
+        startActivityForResult(i, requestCode)
+    }
 
-        startActivityForResult(i, 0)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        val returnFood = data?.getParcelableExtra<FoodDetails>("Food Return")
+
+        when (resultCode) {
+            1 -> {
+                foodTextView1?.text = returnFood?.foodName
+                foodRating1?.text = returnFood?.rating.toString()
+                food1 = returnFood
+            }
+            2-> {
+                foodTextView2?.text = returnFood?.foodName
+                foodRating2?.text = returnFood?.rating.toString()
+                food2 = returnFood
+            }
+            3 -> {
+                foodTextView3?.text = returnFood?.foodName
+                foodRating3?.text = returnFood?.rating.toString()
+                food3 = returnFood
+            }
+            4 -> {
+                foodTextView4?.text = returnFood?.foodName
+                foodRating4?.text = returnFood?.rating.toString()
+                food4 = returnFood
+            }
+        }
+
     }
 
 }

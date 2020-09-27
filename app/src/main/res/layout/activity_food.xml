@@ -116,6 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
         android:gravity="center"
+        android:onClick="onUpdate"
         android:text="@string/updateButton"
         app:layout_constraintEnd_toEndOf="@+id/ratingTextView"
         app:layout_constraintStart_toStartOf="@+id/ratingTextView"
