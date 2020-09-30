@@ -7,10 +7,10 @@
     <string name="foodTextView4">Satay</string>
     <string name="creditTextView">Photos by Chan Siaw Zheng on Google Images</string>
 
-    <string name="foodRating1">3</string>
-    <string name="foodRating2">4</string>
-    <string name="foodRating3">5</string>
-    <string name="foodRating4">2</string>
+    <string name="foodRating1">3.0</string>
+    <string name="foodRating2">4.0</string>
+    <string name="foodRating3">5.0</string>
+    <string name="foodRating4">2.0</string>
 
     <string name="chickenrice">Chicken Rice</string>
     <string name="nasilemak">Nasi Lemak</string>
@@ -18,14 +18,8 @@
     <string name="satay">Satay</string>
 
     <string name="foodImageView">Food Image: </string>
-    <string name="foodTextView">Food Name: </string>
-    <string name="foodEditText" />
-    <string name="cuisineTextView">Type of Cuisine: </string>
-    <string name="cuisineEditText" />
-    <string name="dateTextView">Date: </string>
+    <string name="foodEditText" >Food Name: </string>
+    <string name="cuisineEditText">Type of Cuisine: </string>
     <string name="dateEditText">dd/mm/yyyy</string>
-    <string name="ratingTextView">Rating: </string>
-    <string name="updateButton">Update</string>
-
 
 </resources>

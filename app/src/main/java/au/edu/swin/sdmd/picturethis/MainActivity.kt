@@ -1,5 +1,6 @@
 package au.edu.swin.sdmd.picturethis
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -63,25 +64,26 @@ class MainActivity : AppCompatActivity() {
 
 
     fun onClick(view: View) {
-        val i = Intent(this, Food::class.java)
+        val i = Intent(this, Food::class.java).apply {
 
         when(view.id) {
             R.id.chickenrice -> {
-                i.putExtra("Food Details", food1)
+                putExtra("Food Details", food1)
                 requestCode = 1
             }
             R.id.nasilemak -> {
-                i.putExtra("Food Details", food2)
+                putExtra("Food Details", food2)
                 requestCode = 2
             }
             R.id.friednoodle -> {
-                i.putExtra("Food Details", food3)
+                putExtra("Food Details", food3)
                 requestCode = 3
             }
             R.id.satay -> {
-                i.putExtra("Food Details", food4)
+                putExtra("Food Details", food4)
                 requestCode = 4
             }
+        }
         }
 
         i.putExtra("Request Code", requestCode)
@@ -90,31 +92,30 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        val returnFood = data?.getParcelableExtra<FoodDetails>("Food Return")
 
-        when (resultCode) {
-            1 -> {
-                foodTextView1?.text = returnFood?.foodName
-                foodRating1?.text = returnFood?.rating.toString()
-                food1 = returnFood
-            }
-            2-> {
-                foodTextView2?.text = returnFood?.foodName
-                foodRating2?.text = returnFood?.rating.toString()
-                food2 = returnFood
-            }
-            3 -> {
-                foodTextView3?.text = returnFood?.foodName
-                foodRating3?.text = returnFood?.rating.toString()
-                food3 = returnFood
-            }
-            4 -> {
-                foodTextView4?.text = returnFood?.foodName
-                foodRating4?.text = returnFood?.rating.toString()
-                food4 = returnFood
-            }
-        }
+            val returnFood = data?.getParcelableExtra<FoodDetails>("Food Return")
 
+            when (resultCode) {
+                1 -> {
+                    foodTextView1?.text = returnFood?.foodName
+                    foodRating1?.text = returnFood?.rating.toString()
+                    food1 = returnFood
+                }
+                2-> {
+                    foodTextView2?.text = returnFood?.foodName
+                    foodRating2?.text = returnFood?.rating.toString()
+                    food2 = returnFood
+                }
+                3 -> {
+                    foodTextView3?.text = returnFood?.foodName
+                    foodRating3?.text = returnFood?.rating.toString()
+                    food3 = returnFood
+                }
+                4 -> {
+                    foodTextView4?.text = returnFood?.foodName
+                    foodRating4?.text = returnFood?.rating.toString()
+                    food4 = returnFood
+                }
+            }
     }
-
 }

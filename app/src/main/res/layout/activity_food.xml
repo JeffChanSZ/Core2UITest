@@ -8,15 +8,15 @@
 
     <ImageView
         android:id="@+id/foodImageView"
-        android:layout_width="410dp"
-        android:layout_height="226dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginBottom="1dp"
+        android:layout_width="412dp"
+        android:layout_height="274dp"
+        android:layout_marginBottom="37dp"
+        android:contentDescription="@string/foodImageView"
         android:gravity="center"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@+id/foodEditText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/foodEditText"
+        app:layout_constraintStart_toStartOf="@+id/foodEditText"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/alert_dark_frame" />
 
@@ -24,102 +24,53 @@
         android:id="@+id/foodEditText"
         android:layout_width="229dp"
         android:layout_height="46dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="37dp"
+        android:autofillHints="FoodName"
         android:ems="10"
         android:gravity="center"
+        android:hint="@string/foodEditText"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/foodImageView"
-        app:layout_constraintStart_toStartOf="@+id/foodImageView"
+        app:layout_constraintEnd_toEndOf="@+id/cuisineEditText"
+        app:layout_constraintStart_toStartOf="@+id/cuisineEditText"
         app:layout_constraintTop_toBottomOf="@+id/foodImageView" />
-
-    <TextView
-        android:id="@+id/foodTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:gravity="center"
-        android:text="@string/foodTextView"
-        app:layout_constraintEnd_toEndOf="@+id/foodEditText"
-        app:layout_constraintStart_toStartOf="@+id/foodEditText"
-        app:layout_constraintTop_toBottomOf="@+id/foodEditText" />
 
     <EditText
         android:id="@+id/cuisineEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="38dp"
+        android:autofillHints="Type of Cuisine"
         android:ems="10"
         android:gravity="center"
+        android:hint="@string/cuisineEditText"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/foodTextView"
-        app:layout_constraintStart_toStartOf="@+id/foodTextView"
-        app:layout_constraintTop_toBottomOf="@+id/foodTextView" />
-
-    <TextView
-        android:id="@+id/cuisineTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:gravity="center"
-        android:text="@string/cuisineTextView"
-        app:layout_constraintEnd_toEndOf="@+id/cuisineEditText"
-        app:layout_constraintStart_toStartOf="@+id/cuisineEditText"
-        app:layout_constraintTop_toBottomOf="@+id/cuisineEditText" />
+        app:layout_constraintEnd_toEndOf="@+id/dateEditText"
+        app:layout_constraintStart_toStartOf="@+id/dateEditText"
+        app:layout_constraintTop_toBottomOf="@+id/foodEditText" />
 
     <EditText
         android:id="@+id/dateEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="37dp"
+        android:autofillHints="Date"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/dateEditText"
         android:inputType="date"
-        app:layout_constraintEnd_toEndOf="@+id/cuisineTextView"
-        app:layout_constraintStart_toStartOf="@+id/cuisineTextView"
-        app:layout_constraintTop_toBottomOf="@+id/cuisineTextView" />
-
-    <TextView
-        android:id="@+id/dateTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:gravity="center"
-        android:text="@string/dateTextView"
-        app:layout_constraintEnd_toEndOf="@+id/dateEditText"
-        app:layout_constraintStart_toStartOf="@+id/dateEditText"
-        app:layout_constraintTop_toBottomOf="@+id/dateEditText" />
+        app:layout_constraintEnd_toEndOf="@+id/ratingBar"
+        app:layout_constraintStart_toStartOf="@+id/ratingBar"
+        app:layout_constraintTop_toBottomOf="@+id/cuisineEditText" />
 
     <RatingBar
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        app:layout_constraintEnd_toEndOf="@+id/dateTextView"
-        app:layout_constraintStart_toStartOf="@+id/dateTextView"
-        app:layout_constraintTop_toBottomOf="@+id/dateTextView" />
-
-    <TextView
-        android:id="@+id/ratingTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:gravity="center"
-        android:text="@string/ratingTextView"
-        app:layout_constraintEnd_toEndOf="@+id/ratingBar"
-        app:layout_constraintStart_toStartOf="@+id/ratingBar"
-        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
-
-    <Button
-        android:id="@+id/updateButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:gravity="center"
-        android:onClick="onUpdate"
-        android:text="@string/updateButton"
-        app:layout_constraintEnd_toEndOf="@+id/ratingTextView"
-        app:layout_constraintStart_toStartOf="@+id/ratingTextView"
-        app:layout_constraintTop_toBottomOf="@+id/ratingTextView" />
+        android:layout_marginStart="85dp"
+        android:layout_marginEnd="86dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateEditText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

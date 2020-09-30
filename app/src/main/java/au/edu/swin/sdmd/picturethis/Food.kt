@@ -2,8 +2,6 @@ package au.edu.swin.sdmd.picturethis
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.RatingBar
@@ -13,12 +11,7 @@ import kotlinx.android.synthetic.main.activity_food.*
 class Food : AppCompatActivity() {
 
 //    lateinit var foodEditText: EditText
-//    private var foodImageView: ImageView? = null
-//    private var foodEditText: EditText? = null
-//    private var cuisineEditText: EditText? = null
-//    private var dateEditText: EditText? = null
-//    private var ratingBar: RatingBar? = null
-//    private var updateButton: Button? = null
+
     private var resultCode: Int = 0
     private var foodDetails: FoodDetails? = null
 
@@ -32,12 +25,11 @@ class Food : AppCompatActivity() {
         val cuisineEditText = findViewById<EditText>(R.id.cuisineEditText) as EditText
         val dateEditText = findViewById<EditText>(R.id.dateEditText) as EditText
         val ratingBar = findViewById<RatingBar>(R.id.ratingBar) as RatingBar
-        val updateButton = findViewById<Button>(R.id.updateButton) as Button
 
 
-        val intent = intent;
-        val requestCode = intent.getIntExtra("Request Code", 0)
-        val food = intent.getParcelableExtra<FoodDetails>("Food Details");
+        val intent = intent.apply {
+        val requestCode = getIntExtra("Request Code", 0)
+        val food = getParcelableExtra<FoodDetails>("Food Details");
 
         when (requestCode) {
             1 -> {
@@ -62,18 +54,29 @@ class Food : AppCompatActivity() {
         cuisineEditText.setText(food?.cuisine)
         dateEditText.setText(food?.date)
         ratingBar.rating = food?.rating!!
+        }
+    }
+
+
+    override fun onBackPressed() {
+
+        foodDetails = FoodDetails(foodEditText.text.toString(), cuisineEditText.text.toString(), dateEditText.text.toString(),
+            ratingBar.rating
+        )
+
+        val datePattern = "\\d{1,2}/\\d{1,2}/\\d{4}".toRegex()
+
+        if (dateEditText.text.matches(datePattern)){
+            val intent = Intent().apply {
+            putExtra("Food Return", foodDetails)
+            }
+            setResult(resultCode, intent)
+            finish()
+        }
+        else{
+            dateEditText.error = "Date Format must be DD/MM/YYYY"
+        }
 
     }
 
-         fun onUpdate(view: View) {
-
-             foodDetails = FoodDetails(foodEditText.text.toString(), cuisineEditText.text.toString(), dateEditText.text.toString(),
-                 ratingBar.rating
-             )
-
-             val intent = Intent()
-                intent.putExtra("Food Return", foodDetails)
-                setResult(resultCode, intent)
-             finish()
-        }
 }
