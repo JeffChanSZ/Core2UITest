@@ -1,5 +1,6 @@
 package au.edu.swin.sdmd.picturethis
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
@@ -34,19 +35,15 @@ class Food : AppCompatActivity() {
         when (requestCode) {
             1 -> {
                 foodImageView.setImageResource(R.drawable.chickenrice)
-                resultCode = 1
             }
             2 -> {
                 foodImageView.setImageResource(R.drawable.nasilemak)
-                resultCode = 2
             }
             3 -> {
                 foodImageView.setImageResource(R.drawable.meegoreng)
-                resultCode = 3
             }
             4 -> {
                 foodImageView.setImageResource(R.drawable.satay)
-                resultCode = 4
             }
         }
 
@@ -70,7 +67,7 @@ class Food : AppCompatActivity() {
             val intent = Intent().apply {
             putExtra("Food Return", foodDetails)
             }
-            setResult(resultCode, intent)
+            setResult(Activity.RESULT_OK, intent)
             finish()
         }
         else{

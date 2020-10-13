@@ -95,27 +95,31 @@ class MainActivity : AppCompatActivity() {
 
             val returnFood = data?.getParcelableExtra<FoodDetails>("Food Return")
 
-            when (resultCode) {
-                1 -> {
-                    foodTextView1?.text = returnFood?.foodName
-                    foodRating1?.text = returnFood?.rating.toString()
-                    food1 = returnFood
-                }
-                2-> {
-                    foodTextView2?.text = returnFood?.foodName
-                    foodRating2?.text = returnFood?.rating.toString()
-                    food2 = returnFood
-                }
-                3 -> {
-                    foodTextView3?.text = returnFood?.foodName
-                    foodRating3?.text = returnFood?.rating.toString()
-                    food3 = returnFood
-                }
-                4 -> {
-                    foodTextView4?.text = returnFood?.foodName
-                    foodRating4?.text = returnFood?.rating.toString()
-                    food4 = returnFood
+            if (resultCode != Activity.RESULT_OK) return
+
+            else {
+                when (requestCode) {
+                    1 -> {
+                        foodTextView1?.text = returnFood?.foodName
+                        foodRating1?.text = returnFood?.rating.toString()
+                        food1 = returnFood
+                    }
+                    2 -> {
+                        foodTextView2?.text = returnFood?.foodName
+                        foodRating2?.text = returnFood?.rating.toString()
+                        food2 = returnFood
+                    }
+                    3 -> {
+                        foodTextView3?.text = returnFood?.foodName
+                        foodRating3?.text = returnFood?.rating.toString()
+                        food3 = returnFood
+                    }
+                    4 -> {
+                        foodTextView4?.text = returnFood?.foodName
+                        foodRating4?.text = returnFood?.rating.toString()
+                        food4 = returnFood
+                    }
                 }
             }
-    }
+        }
 }
