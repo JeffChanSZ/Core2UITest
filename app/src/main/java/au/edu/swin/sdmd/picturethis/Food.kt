@@ -35,15 +35,19 @@ class Food : AppCompatActivity() {
         when (requestCode) {
             1 -> {
                 foodImageView.setImageResource(R.drawable.chickenrice)
+                foodImageView.contentDescription = "Chicken Rice"
             }
             2 -> {
                 foodImageView.setImageResource(R.drawable.nasilemak)
+                foodImageView.contentDescription = "Nasi Lemak"
             }
             3 -> {
                 foodImageView.setImageResource(R.drawable.meegoreng)
+                foodImageView.contentDescription = "Fried Noodle"
             }
             4 -> {
                 foodImageView.setImageResource(R.drawable.satay)
+                foodImageView.contentDescription = "Satay"
             }
         }
 
