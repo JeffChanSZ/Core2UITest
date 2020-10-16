@@ -69,6 +69,7 @@ class MainActivity : AppCompatActivity() {
         when(view.id) {
             R.id.chickenrice -> {
                 putExtra("Food Details", food1)
+                foodImageView1?.contentDescription = "Chicken Rice"
                 requestCode = 1
             }
             R.id.nasilemak -> {
