@@ -35,7 +35,7 @@ class MainActivityTest {
 
         onView(
             allOf(
-                withId(R.id.foodImageView), withContentDescription("foodImageView")
+                withId(R.id.foodImageView), withContentDescription("food1")
             )
         ).check(matches(isCompletelyDisplayed()))
     }

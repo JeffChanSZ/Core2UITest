@@ -95,7 +95,7 @@ class MainActivity : AppCompatActivity() {
 
             val returnFood = data?.getParcelableExtra<FoodDetails>("Food Return")
 
-            if (resultCode != Activity.RESULT_OK) return
+            if (resultCode != Activity.RESULT_OK ) return
 
             else {
                 when (requestCode) {

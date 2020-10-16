@@ -12,7 +12,6 @@
         android:layout_height="200dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="10dp"
-        android:contentDescription="@string/chickenrice"
         android:onClick="onClick"
         app:layout_constraintBottom_toTopOf="@+id/foodTextView1"
         app:layout_constraintEnd_toStartOf="@+id/nasilemak"
